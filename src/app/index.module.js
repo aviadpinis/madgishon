@@ -8,6 +8,7 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { HeaderbarDirective } from './components/headerbar/headerbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
+import {ConfigApp} from './components/config/appconfig.services';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr'])
   .constant('malarkey', malarkey)
@@ -17,6 +18,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .run(runBlock)
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
+  .service('configapp', ConfigApp)
   .controller('MainController', MainController)
   .directive('headerbar', HeaderbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
