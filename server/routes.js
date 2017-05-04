@@ -1,5 +1,6 @@
 var User = require('./models/user');
 var ImageEx = require('./models/imageEx');
+var Exercise = require('./models/exercise')
 
 module.exports=function(app) {
   //place your routes in here..
@@ -51,6 +52,56 @@ module.exports=function(app) {
         throw err;
       }
       res.json(imageEx);
+    });
+  });
+
+  //Exercise Section
+  app.get('/api/exercises', function(req, res){
+    Exercise.getExercises(function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
+    });
+  });
+
+  app.get('/api/exercise/:_id', function(req, res){
+    Exercise.getExerciseById(req.params._id, function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
+    });
+  });
+
+  app.post('/api/exercise', function(req, res){
+    var exercise = req.body;
+    Exercise.addExercise(imageEx, function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
+    });
+  });
+
+  app.put('/api/exercise/:_id', function(req, res){
+    var id = req.params._id;
+    var exercise = req.body;
+    Exercise.updateExercise(id, exercise, {}, function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
+    });
+  });
+
+  app.delete('/api/exercise/:_id', function(req, res){
+    var id = req.params._id;
+    Exercise.deleteExercise(id, function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
     });
   });
 
