@@ -16,10 +16,11 @@ export function HeaderbarDirective() {
 }
 
 class HeaderbarController {
-  constructor (moment,$mdDialog,$state) {
+  constructor (moment,$mdDialog,configapp,$state) {
     'ngInject';
 
     this.mdDialog = $mdDialog;
+    this.config = configapp;
     // "this.creationDate" is available by directive option "bindToController: true"
     this.relativeDate = moment(this.creationDate).fromNow();
     this.state = $state;
@@ -29,6 +30,7 @@ class HeaderbarController {
     let that = this;
     that.mdDialog.show({
       controller:['$scope', '$mdDialog', function ($scope, $mdDialog) {
+        $scope.dyslexia = that.config.dyslexia;
         $scope.hide = function () {
           $mdDialog.hide();
         };
@@ -36,7 +38,7 @@ class HeaderbarController {
           $mdDialog.cancel();
         };
 
-        $scope.create = function (test) {
+        $scope.create = function () {
           alert(this.test.name)
         };
       }],

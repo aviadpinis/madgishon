@@ -4,10 +4,21 @@
       <label>שם התרגול</label>
       <input ng-model="test.name">
     </md-input-container>
-    <h4 style="margin-top:10px">רמת קושי</h4>
-    <md-slider flex md-discrete ng-model="test.level" step="1" min="1" max="5" aria-label="rating"></md-slider>
-    <div flex="25" layout layout-align="center center">
-      <input flex type="number" ng-model="rating" aria-label="rating" aria-controls="rating-slider">
+
+    <md-input-container>
+      <label>קטגוריה</label>
+    <md-select ng-model="test.dyslexiaType">
+      <md-option ng-repeat="dysl in dyslexia" ng-value="dysl">
+        {{dysl}}
+      </md-option>
+    </md-select>
+    </md-input-container>
+    <div>
+      <h4 style="margin-top:10px">רמת קושי</h4>
+      <md-slider flex md-discrete ng-model="test.level" step="1" min="1" max="5" aria-label="rating"></md-slider>
+      <div flex="25" layout layout-align="center center">
+        <input flex type="number" ng-model="test.level" aria-label="rating" aria-controls="rating-slider">
+      </div>
     </div>
   </md-dialog-content>
   <md-dialog-actions class="dialog-actions" layout="row">
