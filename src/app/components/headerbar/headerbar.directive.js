@@ -40,8 +40,8 @@ class HeaderbarController {
 
         $scope.create = function () {
           $mdDialog.hide();
-          that.test = this.test;
-          alert(that.test.name)
+          // that.test = this.test;
+          that.config.goToStateWithParms("home.createEx",this.test)
         };
       }],
       templateUrl: 'app/components/headerbar/initDialog.html',
@@ -50,9 +50,6 @@ class HeaderbarController {
     })
   }
 
-  goToState(stateName){
-      this.state.go(stateName);
-  }
 }
 
 

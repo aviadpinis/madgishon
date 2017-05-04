@@ -1,4 +1,5 @@
 <div>
+  <p>שם התרגול: {{vm.testData.name}}</p>
   <form novalidate class="simple-form">
     <label>Image URL: <input type="text" ng-model="vm.imgEx.img_url" /></label><br />
     <fieldset  data-ng-repeat="answer in vm.imgEx.answers">
@@ -9,10 +10,10 @@
 
 
 
-    <button class="addfields" ng-click="vm.addNewChoice()">Add fields</button> <br/>
-    <input type="button" class="remove" ng-click="vm.reset()" value="Reset" />
-    <input type="submit" class="addfields" ng-click="vm.update(user)" value="Save" />
+    <button class="addfields" ng-click="vm.addNewChoice()">תשובה נוספת</button> <br/>
+    <input type="button" class="remove" ng-click="vm.reset()" value="ביטול" />
+    <input type="button" class="addfields" ng-click="vm.next()" value="המשך" />
+    <input type="submit" class="addfields" ng-click="vm.finish()" value="סיום" />
   </form>
-  <pre>imgEx = {{vm.imgEx | json}}</pre>
-  <pre>master = {{vm.master | json}}</pre>
+  <pre>imgEx = {{vm.testData | json}}</pre>
 </div>

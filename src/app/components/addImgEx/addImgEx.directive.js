@@ -19,18 +19,32 @@ export function addImgExDirective() {
 }
 
 class addImgExController {
-  constructor (moment) {
+  constructor (moment,$stateParams,$http,configapp) {
     'ngInject';
 
     // "this.creationDate" is available by directive option "bindToController: true"
+    this.testData = $stateParams.obj;
+    this.testData.questions = [];
     this.relativeDate = moment(this.creationDate).fromNow();
     this.imgEx = {img_url: "", answers:[]};
-    this.master = this.imgEx;
     this.imgEx.answers = [{text: ""}];
+    this.master = angular.copy(this.imgEx);
+    this.http = $http;
+    this.config = configapp
   }
 
   update(){
     this.master = angular.copy(this.imgEx);
+  }
+
+  next(){
+    var strings = [];
+    for(var i=0;i<this.imgEx.answers.length;i++){
+      strings.push(this.imgEx.answers[i]);
+    }
+    this.imgEx.answers = strings;
+    this.testData.questions.push(this.imgEx);
+    this.reset()
   }
 
   reset() {
@@ -44,6 +58,20 @@ class addImgExController {
   removeChoice(index) {
   //var lastItem = this.imgEx.answers.length-1;
   this.imgEx.answers.splice(index-1, 1);
+  }
+
+  finish()
+  {
+    that = this;
+    this.http.post(this.config.urlforSendQues,this.testData)
+    .then(
+      function(response){
+        that.config.goToState("home");
+      },
+      function(response){
+        // failure callback
+      }
+    );
   }
 }
 
