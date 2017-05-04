@@ -1,4 +1,12 @@
-export function runBlock ($log) {
+export function runBlock ($rootScope, $state, AuthService, AUTH_EVENTS) {
   'ngInject';
-  $log.debug('runBlock end');
+  $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
+    if (!AuthService.isAuthenticated()) {
+      console.log(next.name);
+      if (next.name !== 'outside.login' && next.name !== 'outside.register') {
+        event.preventDefault();
+        $state.go('outside.login');
+      }
+    }
+  });
 }

@@ -1,4 +1,4 @@
-export function config ($logProvider, toastrConfig) {
+export function config ($logProvider, toastrConfig, $httpProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -10,5 +10,7 @@ export function config ($logProvider, toastrConfig) {
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
 
+
+  $httpProvider.interceptors.push('AuthInterceptor');
 
 }

@@ -1,0 +1,35 @@
+<md-content layout-padding>
+  <div>
+    <form name="userForm">
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>שם</label>
+          <input ng-model="user.name">
+        </md-input-container>
+
+        <md-input-container>
+          <label>סיסמא</label>
+          <input ng-model="user.passport"></md-datepicker>
+        </md-input-container>
+      </div>
+
+      <md-input-container>
+        <label>סוג משתמש</label>
+        <md-select ng-model="user.userType">
+          <md-option ng-repeat="type in userTypes" value="{{type}}">
+            {{type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container ng-if="user.userType == 'מטופל'">
+        <label>דיסלקציה</label>
+        <md-select ng-model="user.dyslexiaType">
+          <md-option ng-repeat="type in dyslexiaTypes" value="{{type}}">
+            {{type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </form>
+  </div>
+</md-content>

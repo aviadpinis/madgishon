@@ -24,6 +24,8 @@ db.once('open', function() {
   console.log('Connected to db successfully. url is: ' + connectionString)
 });
 
+require('./server/config/passport')(passport);
+
 app.get('/', function(req, res){
   res.redirect('./dist/index.html');
 });
