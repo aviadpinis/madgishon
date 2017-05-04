@@ -11,9 +11,10 @@ import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive
 import {ConfigApp} from './components/config/appconfig.services';
 import { ShowImageExController } from '../app/components/imageEx/showImageEx.controller'
 import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
+import { ClientPrograssDirective } from '../app/components/clientprograss/clientprograss.directive';
 import { ExListController } from '../app/components/exList/exList.controller';
 
-angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr'])
+angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr','chart.js'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
@@ -26,6 +27,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .controller('ShowImageExController', ShowImageExController)
   .controller('ExListController', ExListController)
   .directive('headerbar', HeaderbarDirective)
+  .directive('clientprograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .directive('addImgEx', addImgExDirective);
 
