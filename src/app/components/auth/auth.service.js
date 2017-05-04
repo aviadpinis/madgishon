@@ -16,13 +16,13 @@ export class AuthService {
   loadUserCredentials() {
     var token = window.localStorage.getItem(this.LOCAL_TOKEN_KEY);
     if (token) {
-      useCredentials(token);
+      this.useCredentials(token);
     }
   }
 
   storeUserCredentials(token) {
     window.localStorage.setItem(this.LOCAL_TOKEN_KEY, token);
-    useCredentials(token);
+    this.useCredentials(token);
   }
 
   useCredentials(token) {
@@ -30,19 +30,19 @@ export class AuthService {
     this.authToken = token;
 
     // Set the token as header for your requests!
-    $http.defaults.headers.common.Authorization = this.authToken;
+    this.$http.defaults.headers.common.Authorization = this.authToken;
   }
 
   destroyUserCredentials() {
     this.authToken = undefined;
     this.isAuthenticated = false;
-    $http.defaults.headers.common.Authorization = undefined;
+    this.$http.defaults.headers.common.Authorization = undefined;
     window.localStorage.removeItem(this.LOCAL_TOKEN_KEY);
   }
 
   register(user) {
-    return $q(function (resolve, reject) {
-      $http.post(this.API_ENDPOINT.url + '/signup', user).then(function (result) {
+    return this.$q(function (resolve, reject) {
+      this.$http.post(this.API_ENDPOINT.url + '/signup', user).then(function (result) {
         if (result.data.success) {
           resolve(result.data.msg);
         } else {
@@ -50,26 +50,26 @@ export class AuthService {
         }
       });
     });
-  };
+  }
 
   login(user) {
-    return $q(function (resolve, reject) {
-      $http.post(this.API_ENDPOINT.url + '/authenticate', user).then(function (result) {
+    return this.$q(function (resolve, reject) {
+      this.$http.post(this.API_ENDPOINT.url + '/authenticate', user).then(function (result) {
         if (result.data.success) {
-          storeUserCredentials(result.data.token);
+          this.storeUserCredentials(result.data.token);
           resolve(result.data.msg);
         } else {
           reject(result.data.msg);
         }
       });
     });
-  };
+  }
 
   logout() {
-    destroyUserCredentials();
-  };
-
-  isAuthenticated(){
-    return this.isAuthenticated;
+    this.destroyUserCredentials();
   }
+
+  /*isAuthenticated(){
+    return this.isAuthenticated;
+  }*/
 }

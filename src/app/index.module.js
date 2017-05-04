@@ -15,6 +15,7 @@ import { ClientPrograssDirective } from '../app/components/clientprograss/client
 import { ExListController } from '../app/components/exList/exList.controller';
 import { AuthService } from '../app/components/auth/auth.service';
 import { AuthInterceptor } from '../app/components/auth/authInterceptor.service';
+import { LoginController } from '../app/components/login/login.controller';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr','chart.js'])
   .constant('malarkey', malarkey)
@@ -37,6 +38,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .controller('MainController', MainController)
   .controller('ShowImageExController', ShowImageExController)
   .controller('ExListController', ExListController)
+  .controller('LoginController', LoginController)
   .directive('headerbar', HeaderbarDirective)
   .directive('clientprograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)

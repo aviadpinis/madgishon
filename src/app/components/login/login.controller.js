@@ -4,11 +4,21 @@ export class LoginController {
     this.$scope = $scope;
     this.AuthService = AuthService;
     this.$state = $state;
+
+    this.userTypes = ["מטפל","מטופל","הורה"];
+    this.dyslexiaTypes = [
+      "אגנזויה לאותיות",
+      "שיכול אותיות - lcd",
+      "נגלקט",
+      "קישבית",
+      "שטח",
+      "אימות קריאה"
+    ];
   }
 
   login() {
-    AuthService.login($scope.user).then(function (msg) {
-      $state.go('inside');
+    this.AuthService.login(this.$scope.user).then(function (msg) {
+      this.$state.go('inside');
     }, function (errMsg) {
       alert(errMsg);
     });

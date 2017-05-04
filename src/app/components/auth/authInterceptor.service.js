@@ -11,7 +11,7 @@ export class AuthInterceptor {
 
     this.responseError = function (response) {
       $rootScope.$broadcast({
-        401: AUTH_EVENTS.notAuthenticated,
+        401: AUTH_EVENTS.notAuthenticated
       }[response.status], response);
       return $q.reject(response);
     }
