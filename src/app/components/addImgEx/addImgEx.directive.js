@@ -40,7 +40,7 @@ class addImgExController {
   next(){
     var strings = [];
     for(var i=0;i<this.imgEx.answers.length;i++){
-      strings.push(this.imgEx.answers[i]);
+      strings.push(this.imgEx.answers[i].text);
     }
     this.imgEx.answers = strings;
     this.testData.questions.push(this.imgEx);
