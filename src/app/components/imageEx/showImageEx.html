@@ -1,0 +1,20 @@
+<div>
+  <form ng-submit="submit()">
+    <h1>{{vm.exName}}</h1> : <h6>{{vm.exLevel}}</h6>
+    <img src="{{vm.image_url}}">
+    <md-radio-group ng-model="vm.nameEx">
+
+      <!--<ng-repeat = "answer in vm.answers">
+        <md-radio-button value="{{answer.index}}">{{answer.text}}</md-radio-button>
+      </ng-repeat>-->
+
+      <md-radio-button ng-repeat="answer in vm.answers"
+                       ng-value="answer.index"
+                       ng-disabled=" d.isDisabled "
+                       ng-class="{'md-align-top-left': $index==1}" >
+        {{answer.text}}
+      </md-radio-button>
+
+    </md-radio-group>
+  </form>
+</div>

@@ -24,5 +24,16 @@
   "resolutions": {
     "jquery": "~2.1.4",
     "angular": "~1.5.3"
-  }
+  },
+  "homepage": "https://github.com/aviadpinis/madgishon",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
