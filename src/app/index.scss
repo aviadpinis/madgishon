@@ -101,7 +101,7 @@ div{
 
 md-dialog{
   width: 30%;
-  height: 70%;
+  height: 45%;
 }
 
 .htitle{
@@ -110,6 +110,14 @@ md-dialog{
 
 .inputdialogstyle{
   padding: 0;
+}
+
+md-slider{
+  width: 80%;
+  direction: ltr !important;
+}
+.quarter{
+  width: 25%;
 }
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
