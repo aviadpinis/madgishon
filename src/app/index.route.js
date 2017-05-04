@@ -9,8 +9,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
     })
     .state('home.createEx',{
       url:'/createex',
-      templateUrl: '',
-      controller:''
+      templateUrl: 'app/components/imageEx/showImageEx.html',
+      controller:'ShowImageExController',
+      controllerAs: 'vm'
   })
   ;
 
