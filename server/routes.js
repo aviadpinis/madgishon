@@ -74,6 +74,15 @@ module.exports=function(app) {
     });
   });
 
+  app.get('/api/exercise/bytype/:_type', function(req, res){
+    Exercise.getExercisesByType(req.params._type, function(err,exercise){
+      if (err){
+        throw err;
+      }
+      res.json(exercise);
+    });
+  });
+
   app.post('/api/exercise', function(req, res){
     var exercise = req.body;
     Exercise.addExercise(exercise, function(err,exercise){

@@ -41,6 +41,12 @@ module.exports.getExerciseById = function(id, callback){
   Exercise.findById(id, callback);
 };
 
+//Get Exercises of specific type
+module.exports.getExercisesByType = function(type, callback, limit){
+  var query = {dyslexiaType : type};
+  Exercise.find(query, callback).limit(limit);
+};
+
 //Add ImageEx
 module.exports.addExercise = function(exercise, callback){
   Exercise.create(exercise, callback);
