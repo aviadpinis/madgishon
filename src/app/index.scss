@@ -90,6 +90,27 @@ section.jumbotron {
   }
 }
 
+md-content{
+  width: 100%;
+  direction: rtl;
+}
+
+div{
+  direction: rtl;
+}
+
+md-dialog{
+  width: 30%;
+  height: 70%;
+}
+
+.htitle{
+  text-align: center;
+}
+
+.inputdialogstyle{
+  padding: 0;
+}
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
