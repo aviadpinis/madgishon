@@ -7,11 +7,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       controllerAs: 'main'
     })
-    // .state('home.createEx',{
-    //   url:'/createex',
-    //   templateUrl: '',
-    //   controller:''
-  // })
+    .state('home.createEx',{
+      url:'/createex',
+      templateUrl: 'app/components/imageEx/showImageEx.html',
+      controller:'ShowImageExController',
+      controllerAs: 'vm'
+  })
   ;
 
   $urlRouterProvider.otherwise('/');
