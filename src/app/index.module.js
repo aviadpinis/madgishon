@@ -10,6 +10,8 @@ import { HeaderbarDirective } from './components/headerbar/headerbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import {ConfigApp} from './components/config/appconfig.services';
 import { ShowImageExController } from '../app/components/imageEx/showImageEx.controller'
+import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
+import { ExListController } from '../app/components/exList/exList.controller';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr'])
   .constant('malarkey', malarkey)
@@ -22,5 +24,8 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .service('configapp', ConfigApp)
   .controller('MainController', MainController)
   .controller('ShowImageExController', ShowImageExController)
+  .controller('ExListController', ExListController)
   .directive('headerbar', HeaderbarDirective)
-  .directive('acmeMalarkey', MalarkeyDirective);
+  .directive('acmeMalarkey', MalarkeyDirective)
+  .directive('addImgEx', addImgExDirective);
+
