@@ -16,12 +16,13 @@ export function HeaderbarDirective() {
 }
 
 class HeaderbarController {
-  constructor (moment,$mdDialog) {
+  constructor (moment,$mdDialog,$state) {
     'ngInject';
 
     this.mdDialog = $mdDialog;
     // "this.creationDate" is available by directive option "bindToController: true"
     this.relativeDate = moment(this.creationDate).fromNow();
+    this.state = $state;
   }
 
   openInitDialog(){
@@ -43,6 +44,10 @@ class HeaderbarController {
       // parent: angular.element(document.body),
       clickOutsideToClose: false
     })
+  }
+
+  goToState(stateName){
+      this.state.go(stateName);
   }
 }
 

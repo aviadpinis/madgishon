@@ -9,6 +9,7 @@ import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service'
 import { HeaderbarDirective } from './components/headerbar/headerbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import { ShowImageExController } from '../app/components/imageEx/showImageEx.controller'
+import { ExListController } from '../app/components/exList/exList.controller';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr'])
   .constant('malarkey', malarkey)
@@ -20,6 +21,6 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .controller('ShowImageExController', ShowImageExController)
-  .directive('acmeNavbar', NavbarDirective)
+  .controller('ExListController', ExListController)
   .directive('headerbar', HeaderbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

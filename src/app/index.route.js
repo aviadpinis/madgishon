@@ -12,7 +12,13 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/components/imageEx/showImageEx.html',
       controller:'ShowImageExController',
       controllerAs: 'vm'
-  })
+    })
+    .state('home.exList',{
+      url:'exList',
+      templateUrl: 'app/components/exList/exList.html',
+      controller:'ExListController',
+      controllerAs: 'vm'
+    })
   ;
 
   $urlRouterProvider.otherwise('/');
