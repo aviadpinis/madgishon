@@ -1,0 +1,41 @@
+body{
+  text-align: right;
+}
+
+fieldset{
+  padding: 16px;
+}
+
+.addfields{
+  background: #09F009;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 21px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 9px;
+  vertical-align: top;
+  line-height: 100%;
+}
+
+#choicesDisplay {
+  padding: 10px;
+  border: 1px solid rgb(171, 239, 171);
+}
+.remove{
+  background: #C76868;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 21px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 9px;
+  vertical-align: top;
+  line-height: 100%;
+}
+input[type="text"],
+select{
+  padding:5px;
+}
