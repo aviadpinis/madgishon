@@ -9,8 +9,9 @@ import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service'
 import { HeaderbarDirective } from './components/headerbar/headerbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import {ConfigApp} from './components/config/appconfig.services';
-import { ShowImageExController } from '../app/components/imageEx/showImageEx.controller'
+// import { ShowImageExController } from './components/showImageEx/showImageEx.controller'
 import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
+import { showImageExDirective } from '../app/components/showImageEx/showImageEx.directive';
 import { ExListController } from '../app/components/exList/exList.controller';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr'])
@@ -23,9 +24,10 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .service('webDevTec', WebDevTecService)
   .service('configapp', ConfigApp)
   .controller('MainController', MainController)
-  .controller('ShowImageExController', ShowImageExController)
+  // .controller('ShowImageExController', ShowImageExController)
   .controller('ExListController', ExListController)
   .directive('headerbar', HeaderbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
-  .directive('addImgEx', addImgExDirective);
+  .directive('addImgEx', addImgExDirective)
+  .directive('showImageEx', showImageExDirective);
 

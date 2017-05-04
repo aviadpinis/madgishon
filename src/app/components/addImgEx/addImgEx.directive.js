@@ -22,28 +22,28 @@ class addImgExController {
   constructor (moment) {
     'ngInject';
 
-    // "this.creationDate" is available by directive option "bindToController: true"
-    this.relativeDate = moment(this.creationDate).fromNow();
-    this.imgEx = {img_url: "", answers:[]};
-    this.master = this.imgEx;
-    this.imgEx.answers = [{text: ""}];
+    // "this.imgEx.creationDate" is available by directive option "bindToController: true"
+    this.imgEx.relativeDate = moment(this.imgEx.creationDate).fromNow();
+    this.imgEx.imgEx = {img_url: "", answers:[]};
+    this.imgEx.master = this.imgEx.imgEx;
+    this.imgEx.imgEx.answers = [""];
   }
 
   update(){
-    this.master = angular.copy(this.imgEx);
+    this.imgEx.master = angular.copy(this.imgEx.imgEx);
   }
 
   reset() {
-    this.imgEx = angular.copy(this.master);
+    this.imgEx.imgEx = angular.copy(this.imgEx.master);
   }
 
   addNewChoice(){
-    this.imgEx.answers.push({text: ""});
+    this.imgEx.imgEx.answers.push("");
   }
 
-  removeChoice(index) {
-  //var lastItem = this.imgEx.answers.length-1;
-  this.imgEx.answers.splice(index-1, 1);
+  removeChoice(answer) {
+  var index = this.imgEx.imgEx.answers.indexOf(answer);
+  this.imgEx.imgEx.answers.splice(index, 1);
   }
 }
 

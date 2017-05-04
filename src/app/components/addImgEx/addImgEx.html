@@ -2,9 +2,9 @@
   <form novalidate class="simple-form">
     <label>Image URL: <input type="text" ng-model="vm.imgEx.img_url" /></label><br />
     <fieldset  data-ng-repeat="answer in vm.imgEx.answers">
-      <button class="remove" ng-click="vm.removeChoice(answer.index)">X</button>
-      <label>Answer:<input type="text" ng-model="answer.text" /></label>
-      <label><input type="radio" ng-model="vm.imgEx.right_answer" value={{answer.text}} />is right answer</label>
+      <button class="remove" ng-click="vm.removeChoice(answer)">X</button>
+      <label>Answer:<input type="text" ng-model="answer" /></label>
+      <label><input type="radio" ng-model="vm.imgEx.right_answer" value={{answer}} />is right answer</label>
     </fieldset>
 
 
