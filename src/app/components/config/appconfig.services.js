@@ -14,7 +14,7 @@ export class ConfigApp {
     ];
 
     this.state = $state;
-    this.urlforSendQues = ""
+    this.urlforSendQues = "http://localhost:3001/api/exercise"
 
 
     this.goToState = function(stateName){
