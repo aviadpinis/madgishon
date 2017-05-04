@@ -6,7 +6,7 @@ var exerciseScheme = mongoose.Schema({
     type: String,
     require: true
   },
-  dyslexia:{
+  dyslexiaType:{
     type: String,
     require: true
   },
@@ -14,19 +14,19 @@ var exerciseScheme = mongoose.Schema({
     type: Number,
     require: true
   },
-  question: {
-    image_url : {
+  questions: [{
+    image_url: {
       type: String,
-      require:true
+      require: true
     },
-    answers:[{
+    answers: [{
       type: String
     }],
-    right_answer:{
+    right_answer: {
       type: String,
-      require:true
+      require: true
     }
-  }
+  }]
 });
 
 var Exercise = module.exports = mongoose.model('Exercise', exerciseScheme);
@@ -51,9 +51,9 @@ module.exports.updateExercise = function(id, exercise, options, callback){
   var query = {_id : id};
   var update = {
     name: exercise.name,
-    dyslexia: exercise.dyslexia,
+    dyslexiaType: exercise.dyslexiaType,
     level: exercise.level,
-    question: exercise.question
+    questions: exercise.questions
   };
   Exercise.findOneAndUpdate(query, update, options, callback);
 };

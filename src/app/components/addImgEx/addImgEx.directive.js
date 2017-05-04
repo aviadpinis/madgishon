@@ -62,7 +62,7 @@ class addImgExController {
 
   finish()
   {
-    that = this;
+    var that = this;
     this.http.post(this.config.urlforSendQues,this.testData)
     .then(
       function(response){
