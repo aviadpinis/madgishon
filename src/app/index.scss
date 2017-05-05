@@ -119,6 +119,13 @@ md-slider{
 .quarter{
   width: 25%;
 }
+
+body{
+  background-image: url("../assets/images/pool.jpg");
+}
+md-button{
+   background-color: #09ff8e
+ }
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

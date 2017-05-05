@@ -14,6 +14,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         obj: null
       }
     })
+    .state('home.engineH',{
+      url:'/engineH',
+      template: "<highlight-engine></highlight-engine>",
+    })
     .state('home.exList',{
       url:'exList',
       templateUrl: 'app/components/exList/exList.html',

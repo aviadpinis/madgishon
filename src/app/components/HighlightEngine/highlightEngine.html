@@ -1,12 +1,11 @@
 <div layout="row" layout-sm="column">
-  <div flex>
-    <md-button  ng-click="vm.engine({manipulation:'Margins'})">
-      הדגשה
+  <div flex layout="column">
+    <md-button class="md-raised md-primary" ng-click="vm.engine({manipulation:'Margins'})">הדגשה
     </md-button>
-    <md-button ng-click="vm.engine({manipulation:'paint'})">
-      צביעה
-    </md-button>
-    <md-button ng-click="vm.engine({manipulation:'space'})">
+
+    <md-button class="md-raised md-primary"ng-click="vm.engine({manipulation:'paint'})">
+      צביעה    </md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.engine({manipulation:'space'})">
       שוליים
     </md-button>
   </div>
@@ -19,8 +18,7 @@
 
     <p id="output"></p>
   </div>
-  <div flex>
-
+  <div flex layout="column">
     <md-button ng-click="vm.engine({where:'start'})">
       התחלה
     </md-button>
