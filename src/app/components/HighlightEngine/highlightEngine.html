@@ -1,0 +1,34 @@
+<div layout="row" layout-sm="column">
+  <div flex>
+    <md-button  ng-click="vm.engine({manipulation:'Margins'})">
+      הדגשה
+    </md-button>
+    <md-button ng-click="vm.engine({manipulation:'paint'})">
+      צביעה
+    </md-button>
+    <md-button ng-click="vm.engine({manipulation:'space'})">
+      שוליים
+    </md-button>
+  </div>
+
+  <div class="md-block" flex>
+  <md-input-container >
+    <label>הכנס טקסט</label>
+    <input ng-model="vm.input">
+  </md-input-container>
+
+    <p id="output"></p>
+  </div>
+  <div flex>
+
+    <md-button ng-click="vm.engine({where:'start'})">
+      התחלה
+    </md-button>
+    <md-button ng-click="vm.engine({where:'middle'})">
+      אמצע
+    </md-button>
+    <md-button ng-click="vm.engine({where:'end'})">
+      סוף
+    </md-button>
+  </div>
+</div>

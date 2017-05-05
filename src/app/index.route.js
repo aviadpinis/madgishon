@@ -18,6 +18,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url:'/prograssClient',
       template: "<client-prograss></client-prograss>",
     })
+    .state('home.engineH',{
+      url:'/engineH',
+      template: "<highlight-engine></highlight-engine>",
+    })
     .state('home.exList',{
       url:'exList',
       templateUrl: 'app/components/exList/exList.html',

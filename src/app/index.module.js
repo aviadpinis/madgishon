@@ -12,11 +12,13 @@ import {ConfigApp} from './components/config/appconfig.services';
 import { ShowImageExController } from '../app/components/imageEx/showImageEx.controller'
 import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
 import { ClientPrograssDirective } from '../app/components/clientprograss/clientprograss.directive';
+import { HighlightEngineDirective } from '../app/components/HighlightEngine/highlightEngine.directive';
 import { ExListController } from '../app/components/exList/exList.controller';
 import { AuthService } from '../app/components/auth/auth.service';
 import { AuthInterceptor } from '../app/components/auth/authInterceptor.service';
 import { LoginController } from '../app/components/login/login.controller';
 import { RegisterController } from '../app/components/register/register.controller';
+
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr','chart.js'])
   .constant('malarkey', malarkey)
@@ -42,6 +44,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .controller('LoginController', LoginController)
   .controller('RegisterController', RegisterController)
   .directive('headerbar', HeaderbarDirective)
+  .directive('highlightEngine', HighlightEngineDirective)
   .directive('clientPrograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .directive('addImgEx', addImgExDirective);
