@@ -24,6 +24,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller:'ExListController',
       controllerAs: 'vm'
     })
+    .state('home.clientPro',{
+      url:'/prograssClient',
+      template: "<client-prograss></client-prograss>",
+    })
     .state('home.login',{
       url:'login',
       templateUrl: 'app/components/login/login.html',

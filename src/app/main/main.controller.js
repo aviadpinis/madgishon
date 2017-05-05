@@ -1,5 +1,5 @@
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($timeout, webDevTec, toastr, configapp) {
     'ngInject';
 
     this.awesomeThings = [];
@@ -8,6 +8,8 @@ export class MainController {
     this.toastr = toastr;
 
     this.activate($timeout, webDevTec);
+    configapp.goToState("home.engineH")
+
   }
 
   activate($timeout, webDevTec) {

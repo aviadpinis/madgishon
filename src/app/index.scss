@@ -120,12 +120,15 @@ md-slider{
   width: 25%;
 }
 
-body{
-  background-image: url("../assets/images/pool.jpg");
-}
 md-button{
-   background-color: #09ff8e
- }
+  background-color: #ffffff !important;
+}
+md-content{
+  background-color: transparent!important;
+}
+body{
+  background-image: url("../assets/images/pool.jpg")
+}
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
