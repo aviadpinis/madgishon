@@ -120,14 +120,18 @@ md-slider{
   width: 25%;
 }
 
-md-button{
-  background-color: #ffffff !important;
-}
+//md-button{
+//  background-color: #ffffff !important;
+//}
 md-content{
   background-color: transparent!important;
 }
 body{
   background-image: url("../assets/images/pool.jpg")
+}
+
+input{
+  background-color: white!important;
 }
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject

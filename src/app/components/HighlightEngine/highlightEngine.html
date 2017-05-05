@@ -1,31 +1,31 @@
-<div layout="row" layout-sm="column">
+<div layout="row" layout-sm="column" style="height: 400px;">
   <div class="middle" flex layout="column">
-    <md-button class="md-raised md-primary" ng-click="vm.engine({manipulation:'Margins'})">הדגשה
+    <md-button id="eng" class="md-raised md-primary" ng-click="vm.engine({manipulation:'Margins'})">הדגשה
     </md-button>
 
-    <md-button class="md-raised md-primary"ng-click="vm.engine({manipulation:'paint'})">
+    <md-button id="eng" class="md-raised md-primary"ng-click="vm.engine({manipulation:'paint'})">
       צביעה    </md-button>
-    <md-button class="md-raised md-primary" ng-click="vm.engine({manipulation:'space'})">
+    <md-button id="eng" class="md-raised md-primary" ng-click="vm.engine({manipulation:'space'})">
       שוליים
     </md-button>
   </div>
 
-  <div class="md-block" flex>
-  <md-input-container >
+  <div class="md-block" style="min-width: 50%;" flex>
+  <md-input-container style="display: block; height: 50%; ">
     <label>הכנס טקסט</label>
-    <input ng-model="vm.input">
+    <input ng-model="vm.input" style="background-color: white;height: 50%;">
   </md-input-container>
 
-    <p id="output"></p>
+    <p id="output" style="background-color: white;height: 50%;"></p>
   </div>
-  <div flex layout="column">
-    <md-button ng-click="vm.engine({where:'start'})">
+  <div class="middle" flex layout="column">
+    <md-button id="eng" ng-click="vm.engine({where:'start'})">
       התחלה
     </md-button>
-    <md-button ng-click="vm.engine({where:'middle'})">
+    <md-button id="eng" ng-click="vm.engine({where:'middle'})">
       אמצע
     </md-button>
-    <md-button ng-click="vm.engine({where:'end'})">
+    <md-button id="eng" ng-click="vm.engine({where:'end'})">
       סוף
     </md-button>
   </div>
