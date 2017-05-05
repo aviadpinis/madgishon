@@ -1,4 +1,4 @@
-export function ClientPrograssDirective(malarkey) {
+export function ClientPrograssDirective() {
   'ngInject';
 
   let directive = {
@@ -7,7 +7,6 @@ export function ClientPrograssDirective(malarkey) {
         extraValues: '='
     },
     template: '&nbsp;',
-    link: linkFunc,
     controller: ClientPrograssController,
     controllerAs: 'vm'
   };

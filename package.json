@@ -1,8 +1,9 @@
 {
-  "name": "highlightMe",
+  "name": "app.js",
   "version": "0.0.0",
   "dependencies": {
-    "angular-chart.js": "^1.1.1"
+    "angular-chart.js": "^1.1.1",
+    "express": "^4.15.2"
   },
   "scripts": {
     "test": "gulp test"
@@ -56,5 +57,17 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aviadpinis/madgishon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aviadpinis/madgishon/issues"
+  },
+  "homepage": "https://github.com/aviadpinis/madgishon#readme",
+  "description": ""
 }

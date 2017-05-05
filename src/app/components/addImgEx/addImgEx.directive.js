@@ -23,8 +23,8 @@ class addImgExController {
     'ngInject';
 
     // "this.creationDate" is available by directive option "bindToController: true"
-    this.testData = $stateParams.obj;
-    this.testData.questions = [];
+    this.testShetach = $stateParams.obj;
+    this.questions = [];
     this.relativeDate = moment(this.creationDate).fromNow();
     this.imgEx = {img_url: "", answers:[]};
     this.imgEx.answers = [{text: ""}];
@@ -43,7 +43,7 @@ class addImgExController {
       strings.push(this.imgEx.answers[i].text);
     }
     this.imgEx.answers = strings;
-    this.testData.questions.push(this.imgEx);
+    this.questions.push(this.imgEx);
     this.reset()
   }
 
@@ -63,12 +63,12 @@ class addImgExController {
   finish()
   {
     var that = this;
-    this.http.post(this.config.urlforSendQues,this.testData)
+    this.http.post(this.config.urlforSendQues,this.testShetach)
     .then(
-      function(response){
+      function(){
         that.config.goToState("home");
       },
-      function(response){
+      function(){
         // failure callback
       }
     );
