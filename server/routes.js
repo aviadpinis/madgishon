@@ -4,6 +4,7 @@ var Exercise = require('./models/exercise')
 var jwt = require('jwt-simple');
 var config  = require('./config/database'); // get db config file
 var passport	= require('passport');
+var TestRes = require('./models/testRes');
 
 module.exports=function(app) {
   //place your routes in here..
@@ -114,6 +115,44 @@ module.exports=function(app) {
         throw err;
       }
       res.json(exercise);
+    });
+  });
+
+  //Test results section
+  app.get('/api/testreses', function(req, res){
+    TestRes.getTestReses(function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  app.get('/api/testres/:_id', function(req, res){
+    TestRes.getTestResById(req.params._id, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  app.get('/api/testres/bytype/:_type', function(req, res){
+    TestRes.getTestResByDyslexiaType(req.params._type, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  app.post('/api/testres', function(req, res){
+    var testres = req.body;
+    TestRes.addTestRes(testres, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
     });
   });
 
