@@ -17,7 +17,7 @@ export class LoginController {
   }
 
   login() {
-    this.AuthService.login(this.$scope.user).then(function (msg) {
+    this.AuthService.login(this.$scope.user).then(function () {
       this.$state.go('home');
     }, function (errMsg) {
       alert(errMsg);

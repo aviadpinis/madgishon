@@ -13,7 +13,7 @@ import {ConfigApp} from './components/config/appconfig.services';
 import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
 import { ClientPrograssDirective } from '../app/components/clientprograss/clientprograss.directive';
 import { showImageExDirective } from '../app/components/showImageEx/showImageEx.directive';
-import { ExListController } from '../app/components/exList/exList.controller';
+import { exListDirective } from '../app/components/exList/exList.directive';
 import { AuthService } from '../app/components/auth/auth.service';
 import { AuthInterceptor } from '../app/components/auth/authInterceptor.service';
 import { LoginController } from '../app/components/login/login.controller';
@@ -39,7 +39,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .service('AuthInterceptor', AuthInterceptor)
   .controller('MainController', MainController)
   // .controller('ShowImageExController', ShowImageExController)
-  .controller('ExListController', ExListController)
+  .directive('exListDirective', exListDirective)
   .controller('LoginController', LoginController)
   .controller('RegisterController', RegisterController)
   .directive('headerbar', HeaderbarDirective)

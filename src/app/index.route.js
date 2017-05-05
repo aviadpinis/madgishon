@@ -1,4 +1,4 @@
-export function routerConfig ($stateProvider, $urlRouterProvider) {
+export function routerConfig($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
     .state('home', {
@@ -7,29 +7,32 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       controllerAs: 'main'
     })
-    .state('home.createEx',{
-      url:'/createex',
+    .state('home.createEx', {
+      url: '/createex',
       template: "<add-img-ex></add-img-ex>",
       params: {
         obj: null
       }
     })
-    .state('home.exList',{
-      url:'exList',
-      templateUrl: 'app/components/exList/exList.html',
-      controller:'ExListController',
+    .state('home.exList', {
+      url: '/exList',
+      template: '<ex-list-directive></ex-list-directive>',
       controllerAs: 'vm'
     })
-    .state('home.login',{
-      url:'login',
+    .state('home.showEx', {
+      url: '/showEx',
+      templateUrl: 'app/components/showImageEx/showImageEx.html',
+    })
+    .state('home.login', {
+      url: 'login',
       templateUrl: 'app/components/login/login.html',
-      controller:'LoginController',
+      controller: 'LoginController',
       controllerAs: 'vm'
     })
-    .state('home.register',{
-      url:'register',
+    .state('home.register', {
+      url: 'register',
       templateUrl: 'app/components/register/register.html',
-      controller:'RegisterController',
+      controller: 'RegisterController',
       controllerAs: 'vm'
     })
   ;

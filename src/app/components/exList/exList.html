@@ -1,7 +1,12 @@
 <div>
   <ul>
-    <li ng-repeat=" ex in vm.exList">
-      <a href="#/ex/{{ex.name}}">{{ ex.name }} : level {{ex.level}}</a>
+    <h1>מבחנים לדיסלקסיית שטח</h1>
+    <li ng-repeat=" num in vm.numArray">
+      <button ng-click="vm.testShetachClick()">{{vm.testShetach.name}} {{num}}</button>
+    </li>
+    <h1>מבחנים לדיסלקסיית שיכול אותיות - LPD</h1>
+    <li ng-repeat=" num in vm.numArray">
+      <button ng-click="vm.testSikulClick()">{{vm.testSikul.name}} {{num}}</button>
     </li>
   </ul>
 </div>
