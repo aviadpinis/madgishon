@@ -1,12 +1,16 @@
 <div>
    <form ng-submit="submit()">
-     <h1 style="text-align:left;float:left;">{{vm.imgEx.exName}} :</h1>
-     <h2 style="text-align:right;float:right;"> רמת קושי </h2>
-     <h2 style="text-align:right;float:right;">&nbsp; {{vm.imgEx.exLevel}} &nbsp;</h2>
+     <h2 style="text-align:left;float:left;">&nbsp; {{vm.imgEx.exLevel}} &nbsp;</h2>
+     <h2 style="text-align:left;float:left;"> רמת קושי </h2>
+
+     <h1 style="text-align:right;float:right;">{{vm.imgEx.exName}} :</h1>
      <hr style="clear:both;"/>
 
      <button style="text-align:left;float:left;" id="skipBtn" ng-click="vm.submit('skiped','skipBtn')">דלג</button>
-     <img style="text-align:center;float:none;" src="{{vm.imgEx.img_url}}">
+     <img ng-if="vm.testShetach.dyslexiaType == 'שטח'"
+       style="text-align:center;float:none;" src="{{vm.imgEx.img_url}}">
+     <h1  ng-if="vm.testShetach.dyslexiaType == 'שיכול אותיות - LPD'"
+          class style="color:darkmagenta;font-size:120px;text-align:center;float:none;">{{vm.imgEx.img_url}}</h1>
      <hr style="clear:both;"/>
 
      <form novalidate class="simple-form">

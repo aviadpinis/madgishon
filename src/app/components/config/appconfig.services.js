@@ -6,21 +6,20 @@ export class ConfigApp {
     'ngInject';
     this.dyslexia = [
       "אגנזויה לאותיות",
-      "שיכול אותיות - lcd",
-      "נגלקט",
+      "שיכול אותיות - LPD",
+      "נגלקט - מילה",
+      "נגלקט - משפט",
+      "קשבית",
       "שטח",
-      "שטח",
-      "אימות קריאה"
+      "קושי באימות קריאה"
     ];
 
     this.state = $state;
-    /*this.urlforSendQues = "http://localhost:3001/api/exercise";
+    this.urlforSendQues = "http://localhost:3001/api/exercise";
     this.urlforGetAllTests = "http://localhost:3001/api/exercises";
-    this.urlforGetTestById = "http://localhost:3001/api/exercise/";*/
-    this.urlforSendQues = "http://172.22.2.139:3001/api/exercise";
-    this.urlforGetAllTests = "http://172.22.2.139:3001/api/exercises";
-    this.urlforGetTestById = "http://172.22.2.139:3001/api/exercise/";
+    this.urlforGetTestById = "http://localhost:3001/api/exercise/";
 
+    this.pick = {}
     this.goToState = function(stateName){
       this.state.go(stateName);
     }
@@ -28,6 +27,8 @@ export class ConfigApp {
     this.goToStateWithParms = function(stateName,parmas){
       this.state.go(stateName,{obj:parmas});
     }
+
+
 
 
     this.testShetach = {
@@ -151,5 +152,94 @@ export class ConfigApp {
         }
       ]
     }
+
+    this.testSikul = {
+      "name": "שיכול אותיות - מילים קצרות",
+      "dyslexiaType": "שיכול אותיות - LPD",
+      "level": 3,
+      "questions": [
+        {
+          "img_url": "שופטת",
+          "answers": [
+            "צדק",
+            "נקיון"
+          ],
+          "right_answer": "צדק"
+        },
+        {
+          "img_url": "שוטפת",
+          "answers": [
+            "צדק",
+            "נקיון"
+          ],
+          "right_answer": "נקיון"
+        },
+        {
+          "img_url": "גלידה",
+          "answers": [
+            "מבוגר",
+            "טעים"
+          ],
+          "right_answer": "טעים"
+        },
+        {
+          "img_url": "גדילה",
+          "answers": [
+            "מבוגר",
+            "טעים"
+          ],
+          "right_answer": "מבוגר"
+        },
+        {
+          "img_url": "לסחוט",
+          "answers": [
+            "תפוז",
+            "בריכה"
+          ],
+          "right_answer": "תפוז"
+        },
+        {
+          "img_url": "לשחות",
+          "answers": [
+            "מיץ",
+            "ים"
+          ],
+          "right_answer": "ים"
+        },
+        {
+          "img_url": "עומד",
+          "answers": [
+            "זקוף",
+            "תמרור"
+          ],
+          "right_answer": "זקוף"
+        },
+        {
+          "img_url": "עמוד",
+          "answers": [
+            "זקוף",
+            "תמרור"
+          ],
+          "right_answer": "תמרור"
+        },
+        {
+          "img_url": "מחבת",
+          "answers": [
+            "לטגן",
+            "בייסבול"
+          ],
+          "right_answer": "לטגן"
+        },
+        {
+          "img_url": "מחבט",
+          "answers": [
+            "לטגן",
+            "בייסבול"
+          ],
+          "right_answer": "בייסבול"
+        }
+      ]
+    }
+    this.pick = this.testShetach;
   }
 }

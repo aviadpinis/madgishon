@@ -53,10 +53,9 @@ class ShowImageExController {
     };
 */
 //TODO: add user name as parameter
-    constructor (moment,$stateParams,$http,configapp){
+    constructor ($stateParams,configapp){
   'ngInject';
 
-  this.http = $http;
   this.config = configapp;
 
   //TODO: id variable
@@ -70,7 +69,9 @@ class ShowImageExController {
 
   // "this.creationDate" is available by directive option "bindToController: true"
   this.testShetach = this.http.responseData;*/
-  this.testShetach = this.config.testShetach;
+
+  this.testShetach = this.config.pick;
+  //this.testShetach = this.config.testSikul;
   this.questions = this.shuffle(this.testShetach.questions);
   this.questionIndex = 0;
   this.initImgEx(this.questions[this.questionIndex]);
