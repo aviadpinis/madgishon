@@ -3,7 +3,7 @@ export class AuthService {
     'ngInject';
 
     this.$q = $q;
-    this.$http = $http;
+    this.http = $http;
 
     this.LOCAL_TOKEN_KEY = 'yourTokenKey';
     this.isAuthenticated = false;
@@ -30,19 +30,19 @@ export class AuthService {
     this.authToken = token;
 
     // Set the token as header for your requests!
-    this.$http.defaults.headers.common.Authorization = this.authToken;
+    this.http.defaults.headers.common.Authorization = this.authToken;
   }
 
   destroyUserCredentials() {
     this.authToken = undefined;
     this.isAuthenticated = false;
-    this.$http.defaults.headers.common.Authorization = undefined;
+    this.http.defaults.headers.common.Authorization = undefined;
     window.localStorage.removeItem(this.LOCAL_TOKEN_KEY);
   }
 
   register(user) {
     return this.$q(function (resolve, reject) {
-      this.$http.post(this.API_ENDPOINT.url + '/signup', user).then(function (result) {
+      this.http.post(this.API_ENDPOINT.url + '/signup', user).then(function (result) {
         if (result.data.success) {
           resolve(result.data.msg);
         } else {
@@ -54,7 +54,7 @@ export class AuthService {
 
   login(user) {
     return this.$q(function (resolve, reject) {
-      this.$http.post(this.API_ENDPOINT.url + '/authenticate', user).then(function (result) {
+      this.http.post(this.API_ENDPOINT.url + '/authenticate', user).then(function (result) {
         if (result.data.success) {
           this.storeUserCredentials(result.data.token);
           resolve(result.data.msg);

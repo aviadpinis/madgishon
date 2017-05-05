@@ -1,6 +1,6 @@
 <md-content layout-padding>
   <div>
-    <form name="userForm" action="vm.login()">
+    <form name="userForm">
       <div layout-gt-xs="row">
         <md-input-container class="md-block" flex-gt-xs>
           <label>שם</label>
@@ -13,26 +13,8 @@
         </md-input-container>
       </div>
 
-      <md-input-container>
-        <label>סוג משתמש</label>
-        <md-select ng-model="vm.user.userType">
-          <md-option ng-repeat="type in vm.userTypes" value="{{type}}">
-            {{type}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-
-      <md-input-container ng-if="vm.user.userType == 'מטופל'">
-        <label>דיסלקציה</label>
-        <md-select ng-model="user.dyslexiaType">
-          <md-option ng-repeat="type in vm.dyslexiaTypes" value="{{type}}">
-            {{type}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-
       <div>
-        <md-button type="submit">Submit</md-button>
+        <md-button type="submit" ng-click="vm.login()">התחבר</md-button>
       </div>
     </form>
   </div>
