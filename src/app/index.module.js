@@ -13,19 +13,32 @@ import { ShowImageExController } from '../app/components/imageEx/showImageEx.con
 import { addImgExDirective } from '../app/components/addImgEx/addImgEx.directive';
 import { ClientPrograssDirective } from '../app/components/clientprograss/clientprograss.directive';
 import { ExListController } from '../app/components/exList/exList.controller';
+import { AuthService } from '../app/components/auth/auth.service';
+import { AuthInterceptor } from '../app/components/auth/authInterceptor.service';
+import { LoginController } from '../app/components/login/login.controller';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr','chart.js'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
+  .constant('AUTH_EVENTS', {
+    notAuthenticated: 'auth-not-authenticated'
+  })
+  .constant('API_ENDPOINT', {
+    url: 'http://localhost:3001/api'
+    //  For a simulator use: url: 'http://127.0.0.1:8080/api'
+  })
   .config(config)
   .config(routerConfig)
   .run(runBlock)
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .service('configapp', ConfigApp)
+  .service('AuthService', AuthService)
+  .service('AuthInterceptor', AuthInterceptor)
   .controller('MainController', MainController)
   .controller('ShowImageExController', ShowImageExController)
   .controller('ExListController', ExListController)
+  .controller('LoginController', LoginController)
   .directive('headerbar', HeaderbarDirective)
   .directive('clientPrograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)

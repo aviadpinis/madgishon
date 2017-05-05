@@ -1,6 +1,10 @@
 var User = require('./models/user');
 var ImageEx = require('./models/imageEx');
 var Exercise = require('./models/exercise')
+var jwt = require('jwt-simple');
+var config  = require('./config/database'); // get db config file
+var passport	= require('passport');
+var TestRes = require('./models/testRes');
 
 module.exports=function(app) {
   //place your routes in here..
@@ -114,15 +118,124 @@ module.exports=function(app) {
     });
   });
 
-
-  app.get('/api/users', function(req, res) {
-    User.getUsers(function(err,users){
+  //Test results section
+  app.get('/api/testreses', function(req, res){
+    TestRes.getTestReses(function(err,testres){
       if (err){
         throw err;
       }
-      res.json(users);
+      res.json(testres);
     });
   });
+
+  app.get('/api/testres/:_id', function(req, res){
+    TestRes.getTestResById(req.params._id, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  app.get('/api/testres/bytype/:_type', function(req, res){
+    TestRes.getTestResByDyslexiaType(req.params._type, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  app.post('/api/testres', function(req, res){
+    var testres = req.body;
+    TestRes.addTestRes(testres, function(err,testres){
+      if (err){
+        throw err;
+      }
+      res.json(testres);
+    });
+  });
+
+  //users and auth section
+  app.post('/api/signup', function(req, res) {
+    if (!req.body.name || !req.body.password) {
+      res.json({success: false, msg: 'Please pass name and password.'});
+    } else {
+      var newUser = new User({
+        name: req.body.name,
+        password: req.body.password,
+        userType: req.body.userType
+      });
+      if (req.body.userType == "מטופל"){
+        newUser.dyslexiaType = req.body.dyslexiaType;
+      }
+      // save the user
+      newUser.save(function(err) {
+        if (err) {
+          return res.json({success: false, msg: 'Username already exists.'});
+        }
+        res.json({success: true, msg: 'Successful created new user.'});
+      });
+    }
+  });
+
+  app.post('/api/authenticate', function(req, res) {
+    User.findOne({
+      name: req.body.name
+    }, function(err, user) {
+      if (err) throw err;
+
+      if (!user) {
+        res.send({success: false, msg: 'Authentication failed. User not found.'});
+      } else {
+        // check if password matches
+        user.comparePassword(req.body.password, function (err, isMatch) {
+          if (isMatch && !err) {
+            // if user is found and password is right create a token
+            var token = jwt.encode(user, config.secret);
+            // return the information including token as JSON
+            res.json({success: true, token: 'JWT ' + token});
+          } else {
+            res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+          }
+        });
+      }
+    });
+  });
+
+  // route to a restricted info (GET http://localhost:8080/api/memberinfo)
+  app.get('/api/memberinfo', passport.authenticate('jwt', { session: false}), function(req, res) {
+    var token = getToken(req.headers);
+    if (token) {
+      var decoded = jwt.decode(token, config.secret);
+      User.findOne({
+        name: decoded.name
+      }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+        } else {
+          res.json({success: true, msg: 'Welcome in the member area ' + user.name + '!'});
+        }
+      });
+    } else {
+      return res.status(403).send({success: false, msg: 'No token provided.'});
+    }
+  });
+
+  getToken = function (headers) {
+    if (headers && headers.authorization) {
+      var parted = headers.authorization.split(' ');
+      if (parted.length === 2) {
+        return parted[1];
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  };
 
 
 }

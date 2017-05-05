@@ -24,6 +24,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller:'ExListController',
       controllerAs: 'vm'
     })
+    .state('home.login',{
+      url:'login',
+      templateUrl: 'app/components/login/login.html',
+      controller:'LoginController',
+      controllerAs: 'vm'
+    })
   ;
 
   $urlRouterProvider.otherwise('/');
