@@ -67,10 +67,10 @@ class addImgExController {
     .then(
       function(response){
         that.config.goToState("home");
-      },
-      function(response){
-        // failure callback
       }
+      // function(response){
+      //   // failure callback
+      // }
     );
   }
 }

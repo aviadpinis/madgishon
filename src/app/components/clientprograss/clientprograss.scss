@@ -1,25 +1,16 @@
-.acme-malarkey {
-  text-transform: capitalize;
-  color: #cb3837;
-
-  &:after {
-    animation: cursor-blink 0.4s linear infinite;
-    content: "|";
-    color: #cb3837;
-  }
+.chartsize{
+  width: 40% !important;
+  height: 40% !important;
 }
 
-@keyframes cursor-blink {
-  1% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
+#leftside {
+  float: left;
+  width: 100%;
+  background-color: #CCF;
+}
+#rightside {
+  float: right;
+  width: 200px;
+  margin-right: -200px;
+  background-color: #FFA;
 }

@@ -27,7 +27,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .controller('ShowImageExController', ShowImageExController)
   .controller('ExListController', ExListController)
   .directive('headerbar', HeaderbarDirective)
-  .directive('clientprograss', ClientPrograssDirective)
+  .directive('clientPrograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .directive('addImgEx', addImgExDirective);
 

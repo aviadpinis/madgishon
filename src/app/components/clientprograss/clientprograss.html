@@ -1,0 +1,17 @@
+<div id="leftside">
+  <li ng-repeat="test in vm.myTests">
+    <md-button ng-click="vm.selectTest(test)">{{ test.name }}</md-button>
+  </li>
+  <p>סיכום מצב התקדמות לפי תרגילים</p>
+  <canvas id="bar" class="chartsize chart chart-bar"
+          chart-data="vm.data" chart-labels="vm.labels" chart-series="vm.series">
+    </canvas>
+</div>
+<div id="rightside" ng-if="vm.specificTest">
+  <p>תוצאות של מבחן {{vm.specificTestName}}</p>
+  <div>
+  <canvas id="doughnut" class="chartsize chart chart-doughnut"
+          chart-data="vm.dataTest" chart-labels="vm.labelsTest">
+  </canvas>
+  </div>
+</div>
