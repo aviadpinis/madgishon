@@ -1,0 +1,30 @@
+<div>
+   <form ng-submit="submit()">
+     <h1 style="text-align:left;float:left;">{{vm.imgEx.exName}} :</h1>
+     <h2 style="text-align:right;float:right;"> רמת קושי </h2>
+     <h2 style="text-align:right;float:right;">&nbsp; {{vm.imgEx.exLevel}} &nbsp;</h2>
+     <hr style="clear:both;"/>
+
+     <button style="text-align:left;float:left;" id="skipBtn" ng-click="vm.submit('skiped','skipBtn')">דלג</button>
+     <img style="text-align:center;float:none;" src="{{vm.imgEx.img_url}}">
+     <hr style="clear:both;"/>
+
+     <form novalidate class="simple-form">
+    <fieldset  data-ng-repeat="answer in vm.imgEx.answers">
+      <div layout="row" ng-if="$even">
+        <div flex>
+          <span>
+            <button id="ansBtn{{$index}}" ng-click="vm.submit(answer,'ansBtn'+$index)">{{vm.imgEx.answers[$index]}}</button>
+          </span>
+        </div>
+        <div flex>
+          <span>
+            <button id="ansBtn{{($index+1)}}" ng-click="vm.submit(answer,'ansBtn'+($index+1))">{{vm.imgEx.answers[$index+1]}}</button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+    <!-- <p>{{vm.testRes | json}}</p> -->
+
+</div>
