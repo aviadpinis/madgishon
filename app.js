@@ -3,12 +3,17 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var routes = require('./server/routes.js');
+var morgan = require('morgan');
+var passport	= require('passport');
+var User = require('./server/models/user');
+var jwt = require('jwt-simple');
+
 
 app.use(express.static(__dirname + '/dist'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-//Genre = require('./server/models/genre');
-//Book = require('./server/models/book');
+app.use(morgan('dev'));
+app.use(passport.initialize());
 
 //Connect to mongoose
 var connectionString = 'mongodb://poc:poc@ds119151.mlab.com:19151/poc';

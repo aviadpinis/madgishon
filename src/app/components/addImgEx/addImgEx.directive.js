@@ -19,31 +19,59 @@ export function addImgExDirective() {
 }
 
 class addImgExController {
-  constructor (moment) {
+  constructor (moment,$stateParams,$http,configapp) {
     'ngInject';
 
-    // "this.imgEx.creationDate" is available by directive option "bindToController: true"
-    this.imgEx.relativeDate = moment(this.imgEx.creationDate).fromNow();
-    this.imgEx.imgEx = {img_url: "", answers:[]};
-    this.imgEx.master = this.imgEx.imgEx;
-    this.imgEx.imgEx.answers = [""];
+    // "this.creationDate" is available by directive option "bindToController: true"
+    this.testData = $stateParams.obj;
+    this.testData.questions = [];
+    this.relativeDate = moment(this.creationDate).fromNow();
+    this.imgEx = {img_url: "", answers:[]};
+    this.imgEx.answers = [{text: ""}];
+    this.master = angular.copy(this.imgEx);
+    this.http = $http;
+    this.config = configapp
   }
 
   update(){
-    this.imgEx.master = angular.copy(this.imgEx.imgEx);
+    this.master = angular.copy(this.imgEx);
+  }
+
+  next(){
+    var strings = [];
+    for(var i=0;i<this.imgEx.answers.length;i++){
+      strings.push(this.imgEx.answers[i].text);
+    }
+    this.imgEx.answers = strings;
+    this.testData.questions.push(this.imgEx);
+    this.reset()
   }
 
   reset() {
-    this.imgEx.imgEx = angular.copy(this.imgEx.master);
+    this.imgEx = angular.copy(this.master);
   }
 
   addNewChoice(){
-    this.imgEx.imgEx.answers.push("");
+    this.imgEx.answers.push({text: ""});
   }
 
-  removeChoice(answer) {
-  var index = this.imgEx.imgEx.answers.indexOf(answer);
-  this.imgEx.imgEx.answers.splice(index, 1);
+  removeChoice(index) {
+  //var lastItem = this.imgEx.answers.length-1;
+  this.imgEx.answers.splice(index-1, 1);
+  }
+
+  finish()
+  {
+    var that = this;
+    this.http.post(this.config.urlforSendQues,this.testData)
+    .then(
+      function(response){
+        that.config.goToState("home");
+      },
+      function(response){
+        // failure callback
+      }
+    );
   }
 }
 

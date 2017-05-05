@@ -1,40 +1,49 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt');
 
-//User scheme
-var userScheme = mongoose.Schema({
-  name:{
+// Thanks to http://blog.matoski.com/articles/jwt-express-node-mongoose/
+
+// set up a mongoose model
+var UserSchema = new Schema({
+  name: {
     type: String,
-    require: true
+    unique: true,
+    required: true
   },
-  create_date:{
-    type: Date,
-    default: Date.now
+  password: {
+    type: String,
+    required: true
   }
 });
 
-var User = module.exports = mongoose.model('User', userScheme);
+UserSchema.pre('save', function (next) {
+  var user = this;
+  if (this.isModified('password') || this.isNew) {
+    bcrypt.genSalt(10, function (err, salt) {
+      if (err) {
+        return next(err);
+      }
+      bcrypt.hash(user.password, salt, function (err, hash) {
+        if (err) {
+          return next(err);
+        }
+        user.password = hash;
+        next();
+      });
+    });
+  } else {
+    return next();
+  }
+});
 
-//Get Genres
-module.exports.getUsers = function(callback, limit){
-  User.find(callback).limit(limit);
+UserSchema.methods.comparePassword = function (passw, cb) {
+  bcrypt.compare(passw, this.password, function (err, isMatch) {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, isMatch);
+  });
 };
 
-//Add Genre
-module.exports.addUser = function(user, callback){
-  User.create(user, callback);
-};
-
-//Update Genre
-module.exports.updateUser = function(id, user, options, callback){
-  var query = {_id : id};
-  var update = {
-    name: user.name
-  };
-  User.findOneAndUpdate(query, update, options, callback);
-};
-
-//Delete Genre
-module.exports.deleteUser = function(id, callback){
-  var query = {_id : id};
-  User.remove(query, callback);
-};
+module.exports = mongoose.model('User', UserSchema);

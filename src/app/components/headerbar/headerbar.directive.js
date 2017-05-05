@@ -28,7 +28,7 @@ class HeaderbarController {
 
   openInitDialog(){
     let that = this;
-    that.mdDialog.show({
+    that.test = that.mdDialog.show({
       controller:['$scope', '$mdDialog', function ($scope, $mdDialog) {
         $scope.dyslexia = that.config.dyslexia;
         $scope.hide = function () {
@@ -39,18 +39,17 @@ class HeaderbarController {
         };
 
         $scope.create = function () {
-          alert(this.test.name)
+          $mdDialog.hide();
+          // that.test = this.test;
+          that.config.goToStateWithParms("home.createEx",this.test)
         };
       }],
       templateUrl: 'app/components/headerbar/initDialog.html',
-      // parent: angular.element(document.body),
+      parent: angular.element(document.body),
       clickOutsideToClose: false
     })
   }
 
-  goToState(stateName){
-      this.state.go(stateName);
-  }
 }
 
 
