@@ -2,7 +2,7 @@ export class AuthService {
   constructor($q, $http, API_ENDPOINT) {
     'ngInject';
 
-    this.$q = $q;
+    this.q = $q;
     this.http = $http;
 
     this.LOCAL_TOKEN_KEY = 'yourTokenKey';
@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   register(user) {
-    return this.$q(function (resolve, reject) {
+    return this.q(function (resolve, reject) {
       this.http.post(this.API_ENDPOINT.url + '/signup', user).then(function (result) {
         if (result.data.success) {
           resolve(result.data.msg);
@@ -53,7 +53,7 @@ export class AuthService {
   }
 
   login(user) {
-    return this.$q(function (resolve, reject) {
+    return this.q(function (resolve, reject) {
       this.http.post(this.API_ENDPOINT.url + '/authenticate', user).then(function (result) {
         if (result.data.success) {
           this.storeUserCredentials(result.data.token);
