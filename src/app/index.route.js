@@ -30,6 +30,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller:'LoginController',
       controllerAs: 'vm'
     })
+    .state('home.register',{
+      url:'register',
+      templateUrl: 'app/components/register/register.html',
+      controller:'RegisterController',
+      controllerAs: 'vm'
+    })
   ;
 
   $urlRouterProvider.otherwise('/');
