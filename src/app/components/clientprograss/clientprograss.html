@@ -1,15 +1,15 @@
 <div layout="row" layout-sm="column">
-  <div flex>
+  <div  class="middle" flex>
     <li ng-repeat="test in vm.myTests">
-      <md-button ng-click="vm.selectTest(test)">{{ test.name }}</md-button>
+      <md-button style="background-color: white" ng-click="vm.selectTest(test)">{{ test.name }}</md-button>
     </li>
-    <p>סיכום מצב התקדמות לפי תרגילים</p>
-    <canvas id="bar" class="chartsize chart chart-bar"
+    <p style="font-size: 20px;"><b>סיכום מצב תרגילים</b></p>
+    <canvas id="bar" class="chartsize chart chart-bar" style="background-color: white;"
             chart-data="vm.data" chart-labels="vm.labels" chart-series="vm.series">
       </canvas>
   </div>
-  <div flex ng-if="vm.specificTest">
-    <p>תוצאות של מבחן {{vm.specificTestName}}</p>
+  <div class="middle" flex ng-if="vm.specificTest">
+    <p><b>תוצאות של {{vm.specificTestName}}</b></p>
     <div>
     <canvas id="doughnut" class="chartsize chart chart-doughnut"
             chart-data="vm.dataTest" chart-labels="vm.labelsTest">

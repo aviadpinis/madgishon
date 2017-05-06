@@ -27,7 +27,7 @@ export class ClientPrograssController {
 
     this.myTests=[
       {
-        name:"מבחן 1",
+        name:"תרגיל 1",
         questions:[
           {
             img_url:"url1",
@@ -82,7 +82,7 @@ export class ClientPrograssController {
         ]
       },
       {
-        name:"מבחן 2",
+        name:"תרגיל 2",
         questions:[
           {
             img_url:"url1",
@@ -137,7 +137,7 @@ export class ClientPrograssController {
         ]
       },
       {
-        name:"מבחן 3",
+        name:"תרגיל 3",
         questions:[
           {
             img_url:"url1",

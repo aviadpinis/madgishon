@@ -19,14 +19,16 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       template: "<highlight-engine></highlight-engine>",
     })
     .state('home.exList',{
-      url:'exList',
-      templateUrl: 'app/components/exList/exList.html',
-      controller:'ExListController',
-      controllerAs: 'vm'
+      url:'/exList',
+      template: "<ex-list-directive></ex-list-directive>",
     })
     .state('home.clientPro',{
       url:'/prograssClient',
       template: "<client-prograss></client-prograss>",
+    })
+    .state('home.showEx',{
+      url:'/showEx',
+      template: "<show-image-ex></show-image-ex>",
     })
     .state('home.login',{
       url:'login',
