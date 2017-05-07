@@ -19,6 +19,7 @@ import { AuthService } from '../app/components/auth/auth.service';
 import { AuthInterceptor } from '../app/components/auth/authInterceptor.service';
 import { LoginController } from '../app/components/login/login.controller';
 import { RegisterController } from '../app/components/register/register.controller';
+import { AlfaBetaDirective } from '../app/components/alfaBeta/alfaBeta.directive';
 
 angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr','chart.js'])
   .constant('malarkey', malarkey)
@@ -48,5 +49,7 @@ angular.module('highlightMe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize'
   .directive('clientPrograss', ClientPrograssDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .directive('addImgEx', addImgExDirective)
+  .directive('alfaBeta', AlfaBetaDirective)
   .directive('showImageEx', showImageExDirective);
+
 

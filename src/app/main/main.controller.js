@@ -8,7 +8,7 @@ export class MainController {
     this.toastr = toastr;
 
     this.activate($timeout, webDevTec);
-    configapp.goToState("home.engineH")
+    // configapp.goToState("home.engineH")
 
   }
 
